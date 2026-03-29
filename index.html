@@ -3,67 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Department of Chemistry | College Name</title>
-    <!-- Bootstrap CSS -->
+    <title>Department of Chemistry | Excellence in Molecular Science</title>
+    
+    <!-- Bootstrap 5 & Google Fonts -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <!-- MathJax for Chemistry Formulas -->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">🧪 ChemDept</a>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="faculty.html">Faculty</a></li>
-                    <li class="nav-item"><a class="nav-link" href="research.html">Research</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                </ul>
-            </div>
+    <!-- Transparent Sticky Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top px-4">
+        <a class="navbar-brand fw-bold" href="#">CHEMISTRY<span class="text-primary">DEPT</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link px-3" href="#home">Home</a></li>
+                <li class="nav-item"><a class="nav-link px-3" href="#notices">Notices</a></li>
+                <li class="nav-item"><a class="nav-link px-3" href="#events">Events</a></li>
+                <li class="nav-item"><a class="nav-link px-3" href="#alumni">Alumni</a></li>
+                <li class="nav-item"><a class="nav-link px-3" href="#gallery">Gallery</a></li>
+            </ul>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="hero-section text-center text-white d-flex align-items-center">
-        <div class="container">
-            <h1 class="display-3">Advancing Chemical Sciences</h1>
-            <p class="lead">Exploring the molecular world at [College Name]</p>
-            <a href="research.html" class="btn btn-primary btn-lg">Our Research</a>
-        </div>
-    </header>
-
-    <!-- Interactive Molecule Section -->
-    <section class="container my-5">
-        <div class="row">
-            <div class="col-md-6">
-                <h2>Welcome to the Molecular Era</h2>
-                <p>Our department is dedicated to excellence in <b>Organic</b>, <b>Inorganic</b>, and <b>Physical Chemistry</b>.</p>
-                <p>Chemical Equation Example: $$\ce{Zn^2+ <=>[\ce{OH-}] [\ce{Zn(OH)2}] <=>[\ce{OH-}] [Zn(OH)4]^2-}$$</p>
-            </div>
-            <div class="col-md-6">
-                <!-- 3D Molecule Viewer (Caffeine) -->
-                <div style="height: 300px; width: 100%; position: relative;" 
-                     class='viewer_3Dmoljs' 
-                     data-cid='2519' 
-                     data-backgroundcolor='0xffffff' 
-                     data-style='stick'></div>
-                <p class="text-center text-muted small">Interactive 3D Caffeine Molecule</p>
+    <!-- Hero Section with Glassmorphism -->
+    <section id="home" class="hero d-flex align-items-center text-white">
+        <div class="container text-center" data-aos="zoom-in">
+            <h1 class="display-1 fw-800">The Future of <span class="text-gradient">Molecules</span></h1>
+            <p class="lead mb-4">Pioneering research and education at the intersection of science and innovation.</p>
+            <div class="btn-group">
+                <a href="#notices" class="btn btn-primary btn-lg rounded-pill px-4 me-3">View Notices</a>
+                <a href="#gallery" class="btn btn-outline-light btn-lg rounded-pill px-4">Tour the Lab</a>
             </div>
         </div>
     </section>
 
-    <footer class="bg-dark text-white py-4 text-center" id="contact">
-        <p>© 2023 Chemistry Department | [College Name]</p>
+    <!-- Notices & Events Row -->
+    <section class="container my-5 py-5">
+        <div class="row g-5">
+            <!-- Notices Section (Left) -->
+            <div class="col-lg-4" id="notices" data-aos="fade-right">
+                <div class="notice-card p-4">
+                    <h3 class="mb-4 border-bottom pb-2"><i class="fas fa-bullhorn text-primary me-2"></i>Notices</h3>
+                    <div class="notice-item mb-3">
+                        <span class="badge bg-danger mb-1">New</span>
+                        <p class="mb-0 small fw-bold">Final Lab Exams Schedule - Semester 4</p>
+                        <small class="text-muted">Posted: Oct 24, 2023</small>
+                    </div>
+                    <div class="notice-item mb-3">
+                        <p class="mb-0 small">Workshop on HPLC Instrumentation next week.</p>
+                        <small class="text-muted">Posted: Oct 20, 2023</small>
+                    </div>
+                    <a href="#" class="text-decoration-none small fw-bold">View All Notices →</a>
+                </div>
+            </div>
+
+            <!-- Events Section (Right) -->
+            <div class="col-lg-8" id="events" data-aos="fade-left">
+                <h3 class="mb-4"><i class="fas fa-calendar-alt text-primary me-2"></i>Upcoming Events</h3>
+                <div class="event-card d-flex align-items-center mb-3 p-3 shadow-sm border-start border-primary border-5">
+                    <div class="date-box text-center me-4 p-2 bg-light rounded">
+                        <h4 class="mb-0">15</h4>
+                        <small>NOV</small>
+                    </div>
+                    <div>
+                        <h5 class="mb-0">International Green Chemistry Seminar</h5>
+                        <p class="mb-0 text-muted small">Guest Speaker: Dr. Robert H. Grubbs | 10:00 AM | Main Auditorium</p>
+                    </div>
+                </div>
+                <!-- Repeat for more events -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Alumni Wall of Fame -->
+    <section id="alumni" class="bg-light py-5">
+        <div class="container py-5 text-center">
+            <h2 class="display-5 fw-bold mb-5" data-aos="fade-up">Our Distinguished <span class="text-primary">Alumni</span></h2>
+            <div class="row g-4">
+                <!-- Alumni Member -->
+                <div class="col-md-3" data-aos="flip-left">
+                    <div class="alumni-card shadow-sm bg-white p-3 rounded-4">
+                        <img src="https://i.pravatar.cc/150?u=1" class="rounded-circle mb-3 border border-4 border-primary shadow" width="120" height="120">
+                        <h5>Sarah Jenkins</h5>
+                        <p class="text-muted small mb-1">Batch of 2018</p>
+                        <span class="badge bg-soft-primary text-primary">Scientist @ Pfizer</span>
+                    </div>
+                </div>
+                <!-- Alumni Member -->
+                <div class="col-md-3" data-aos="flip-left" data-aos-delay="100">
+                    <div class="alumni-card shadow-sm bg-white p-3 rounded-4">
+                        <img src="https://i.pravatar.cc/150?u=2" class="rounded-circle mb-3 border border-4 border-primary shadow" width="120" height="120">
+                        <h5>Mark Thompson</h5>
+                        <p class="text-muted small mb-1">Batch of 2015</p>
+                        <span class="badge bg-soft-primary text-primary">Senior Researcher @ MIT</span>
+                    </div>
+                </div>
+                <!-- Add 2 more here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Gallery -->
+    <section id="gallery" class="container py-5">
+        <h2 class="text-center mb-5 fw-bold">Campus & Lab Gallery</h2>
+        <div class="row g-3">
+            <div class="col-md-4" data-aos="zoom-in"><img src="https://images.unsplash.com/photo-1576086213369-97a306d36557" class="img-fluid rounded shadow gallery-img"></div>
+            <div class="col-md-8" data-aos="zoom-in"><img src="https://images.unsplash.com/photo-1532187875605-1ef6ec23916d" class="img-fluid rounded shadow gallery-img"></div>
+            <div class="col-md-6" data-aos="zoom-in"><img src="https://images.unsplash.com/photo-1581093588401-fbb62a02f120" class="img-fluid rounded shadow gallery-img"></div>
+            <div class="col-md-6" data-aos="zoom-in"><img src="https://images.unsplash.com/photo-1603126857599-f6e157fa2fe6" class="img-fluid rounded shadow gallery-img"></div>
+        </div>
+    </section>
+
+    <!-- Modern Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container text-center">
+            <h4 class="fw-bold">Department of Chemistry</h4>
+            <div class="social-links my-4">
+                <a href="#" class="text-white mx-3 fs-4"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="text-white mx-3 fs-4"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-white mx-3 fs-4"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p class="text-muted">© 2023 [College Name]. All rights reserved.</p>
+        </div>
     </footer>
 
-    <!-- 3Dmol.js for Molecule Visualization -->
-    <script src="https://3Dmol.org/build/3Dmol-min.js"></script>
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+        // Navbar color change on scroll
+        window.onscroll = function() {
+            var nav = document.querySelector('nav');
+            if (window.pageYOffset > 100) {
+                nav.classList.add('bg-dark-scrolled', 'shadow');
+            } else {
+                nav.classList.remove('bg-dark-scrolled', 'shadow');
+            }
+        };
+    </script>
 </body>
 </html>
