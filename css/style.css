@@ -1,0 +1,24 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+}
+
+.hero-section {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                url('https://images.unsplash.com/photo-1532187875605-1ef6ec23916d?auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    height: 60vh;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+h2 {
+    color: #004085; /* Deep academic blue */
+    border-bottom: 2px solid #ffc107; /* Gold accent */
+    display: inline-block;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+}
