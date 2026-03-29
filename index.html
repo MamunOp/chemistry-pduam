@@ -45,18 +45,113 @@
         .nav-link { color: var(--dark) !important; fw-bold; margin: 0 10px; transition: 0.3s; }
         .nav-link:hover { color: var(--primary) !important; transform: translateY(-2px); }
 
-        /* 2. HERO SECTION */
-        .hero {
-            height: 80vh;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                        url('https://images.unsplash.com/photo-1532187875605-1ef6ec23916d?auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            color: white;
-            text-align: center;
-        }
+        /* HERO SECTION STYLES */
+.hero {
+    position: relative;
+    height: 90vh; /* Takes up most of the screen */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background-color: #001a33; /* Fallback color */
+}
+
+/* 1. The Base Image with Parallax */
+.hero-bg-image {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url('https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&q=80&w=1920');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Parallax Effect */
+    z-index: 1;
+}
+
+/* 2. The Dark Blue Professional Gradient Overlay */
+.hero-overlay-gradient {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(
+        135deg, 
+        rgba(0, 31, 63, 0.9) 0%, 
+        rgba(0, 77, 153, 0.7) 50%, 
+        rgba(0, 31, 63, 0.9) 100%
+    );
+    z-index: 2;
+}
+
+/* 3. The Subtle Molecular Grid Pattern */
+.hero-pattern {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+    opacity: 0.3;
+    z-index: 3;
+}
+
+/* Content Styling */
+.hero-content {
+    position: relative;
+    z-index: 10;
+    color: white;
+}
+
+.hero-tagline {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #ffcc00; /* Gold/Warning color */
+    font-weight: 700;
+    border-bottom: 2px solid #ffcc00;
+}
+
+.main-title {
+    text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    line-height: 1.1;
+}
+
+.text-accent {
+    color: #ffcc00;
+}
+
+.hero-subtext {
+    max-width: 800px;
+    opacity: 0.9;
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+/* Button Hover Animation */
+.hover-lift {
+    transition: all 0.3s ease;
+}
+.hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+/* Floating "Molecule" Bubbles */
+.molecule-bubble {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 50%;
+    z-index: 4;
+    animation: float 10s infinite ease-in-out;
+}
+.b1 { width: 100px; height: 100px; top: 20%; left: 10%; }
+.b2 { width: 150px; height: 150px; bottom: 15%; right: 5%; animation-delay: 2s; }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-40px) rotate(20deg); }
+}
+
+/* Responsive Fix */
+@media (max-width: 768px) {
+    .hero { height: auto; padding: 120px 0 80px 0; }
+    .main-title { font-size: 2.5rem; }
+}
 
         /* 3. NOTICES & EVENTS */
         .notice-board {
@@ -156,13 +251,40 @@
     </nav>
 
     <!-- HOMEPAGE MAIN SECTION -->
-    <section id="home" class="hero">
-        <div class="container" data-aos="zoom-in">
-            <h1 class="display-3 fw-800">Precision in Practice</h1>
-            <p class="fs-4">Empowering students through molecular excellence and innovative research.</p>
-            <a href="#gallery" class="btn btn-warning btn-lg px-5 rounded-pill mt-4 fw-bold">Explore Our Lab</a>
+<section id="home" class="hero">
+    <!-- Background Layers -->
+    <div class="hero-bg-image"></div>
+    <div class="hero-overlay-gradient"></div>
+    <div class="hero-pattern"></div>
+
+    <div class="container hero-content text-center" data-aos="zoom-in">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <span class="hero-tagline mb-3 d-inline-block" data-aos="fade-down">
+                    Exploring the Molecular World
+                </span>
+                <h1 class="display-2 fw-800 mb-4 main-title">
+                    Precision in <span class="text-accent">Practice</span>
+                </h1>
+                <p class="fs-4 mb-5 hero-subtext mx-auto">
+                    Empowering students at PDUAM Dalgaon through molecular excellence, 
+                    cutting-edge laboratory training, and innovative chemical research.
+                </p>
+                <div class="d-flex justify-content-center gap-3 flex-wrap">
+                    <a href="#gallery" class="btn btn-warning btn-lg px-5 rounded-pill fw-bold shadow-lg hover-lift">
+                        <i class="fas fa-flask me-2"></i>Explore Our Lab
+                    </a>
+                    <a href="#updates" class="btn btn-outline-light btn-lg px-5 rounded-pill fw-bold hover-lift">
+                        Latest News
+                    </a>
+                </div>
+            </div>
         </div>
-    </section>
+    </div>
+    <!-- Animated Molecule Bubbles (Optional Visual Effect) -->
+    <div class="molecule-bubble b1"></div>
+    <div class="molecule-bubble b2"></div>
+</section>
 
     <!-- NOTICE BOARD & EVENTS -->
     <section id="updates" class="py-5">
