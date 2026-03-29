@@ -1,24 +1,68 @@
+:root {
+    --primary-color: #007bff;
+    --dark-bg: #0b1120;
+}
+
 body {
-    font-family: 'Roboto', sans-serif;
-    color: #333;
+    font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
-.hero-section {
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                url('https://images.unsplash.com/photo-1532187875605-1ef6ec23916d?auto=format&fit=crop&w=1350&q=80');
+/* Navbar */
+.navbar { transition: all 0.4s; }
+.bg-dark-scrolled { background: var(--dark-bg) !important; padding: 10px 0; }
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background: linear-gradient(45deg, rgba(11, 17, 32, 0.9), rgba(0, 123, 255, 0.4)), 
+                url('https://images.unsplash.com/photo-1514373941175-0a141072bbc8?auto=format&fit=crop&w=1920&q=80');
     background-size: cover;
-    height: 60vh;
+    background-position: center;
+    background-attachment: fixed;
 }
 
-.navbar-brand {
-    font-weight: bold;
-    letter-spacing: 1px;
+.fw-800 { font-weight: 800; }
+.text-gradient {
+    background: linear-gradient(to right, #ffffff, #00c6ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-h2 {
-    color: #004085; /* Deep academic blue */
-    border-bottom: 2px solid #ffc107; /* Gold accent */
-    display: inline-block;
-    padding-bottom: 5px;
-    margin-bottom: 20px;
+/* Notice Card */
+.notice-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 20px;
 }
+
+.notice-item {
+    padding: 15px;
+    border-radius: 12px;
+    background: #f8f9fa;
+    transition: transform 0.3s;
+}
+.notice-item:hover { transform: translateX(10px); background: #fff; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+
+/* Alumni & Cards */
+.alumni-card {
+    transition: all 0.3s;
+    border: none;
+}
+.alumni-card:hover { transform: translateY(-10px); }
+.bg-soft-primary { background-color: rgba(0, 123, 255, 0.1); }
+
+/* Gallery */
+.gallery-img {
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+    cursor: pointer;
+}
+.gallery-img:hover { transform: scale(1.03); filter: brightness(80%); }
+
+/* Buttons */
+.btn-primary { background: var(--primary-color); border: none; box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3); }
