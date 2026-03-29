@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Department of Chemistry | College Name</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- MathJax for Chemistry Formulas -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">🧪 ChemDept</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="faculty.html">Faculty</a></li>
+                    <li class="nav-item"><a class="nav-link" href="research.html">Research</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section text-center text-white d-flex align-items-center">
+        <div class="container">
+            <h1 class="display-3">Advancing Chemical Sciences</h1>
+            <p class="lead">Exploring the molecular world at [College Name]</p>
+            <a href="research.html" class="btn btn-primary btn-lg">Our Research</a>
+        </div>
+    </header>
+
+    <!-- Interactive Molecule Section -->
+    <section class="container my-5">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Welcome to the Molecular Era</h2>
+                <p>Our department is dedicated to excellence in <b>Organic</b>, <b>Inorganic</b>, and <b>Physical Chemistry</b>.</p>
+                <p>Chemical Equation Example: $$\ce{Zn^2+ <=>[\ce{OH-}] [\ce{Zn(OH)2}] <=>[\ce{OH-}] [Zn(OH)4]^2-}$$</p>
+            </div>
+            <div class="col-md-6">
+                <!-- 3D Molecule Viewer (Caffeine) -->
+                <div style="height: 300px; width: 100%; position: relative;" 
+                     class='viewer_3Dmoljs' 
+                     data-cid='2519' 
+                     data-backgroundcolor='0xffffff' 
+                     data-style='stick'></div>
+                <p class="text-center text-muted small">Interactive 3D Caffeine Molecule</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white py-4 text-center" id="contact">
+        <p>© 2023 Chemistry Department | [College Name]</p>
+    </footer>
+
+    <!-- 3Dmol.js for Molecule Visualization -->
+    <script src="https://3Dmol.org/build/3Dmol-min.js"></script>
+</body>
+</html>
