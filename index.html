@@ -153,115 +153,118 @@
     .main-title { font-size: 2.5rem; }
 }
 
-       /* GLOBAL FIXES */
+    /* DESIGN CONSTANTS */
 .fw-800 { font-weight: 800; }
 .fw-700 { font-weight: 700; }
-.small-text { font-size: 0.75rem; letter-spacing: 1px; }
 
-/* 1. NOTICE BOARD ENHANCEMENTS */
-.notice-wrapper {
-    background: #fff;
-    border-radius: 25px;
-    overflow: hidden;
-    border: 1px solid rgba(0,0,0,0.05);
+/* THE YELLOW LINE (Matches image style) */
+.title-underline-yellow {
+    width: 60px;
+    height: 5px;
+    background: #FFCC00; /* Solid Yellow */
+    border-radius: 10px;
+    margin-top: 8px;
 }
 
-.notice-scroll-area {
-    max-height: 450px;
-    overflow-y: auto;
+/* NOTICE CARD STYLING */
+.modern-notice-card {
+    background: #ffffff;
+    border-radius: 30px; /* High rounding as seen in image */
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.03);
 }
 
 .notice-card-item {
-    padding: 20px;
+    padding: 25px;
     transition: 0.3s;
 }
 
 .notice-card-item:hover {
-    background: #f8fbff;
+    background: #fdfdfd;
 }
 
-.pdf-circle-btn {
-    width: 45px;
-    height: 45px;
-    background: #fff0f0;
-    color: #dc3545;
+.badge-text {
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    display: block;
+}
+
+/* PDF BUTTON (Soft Circle with Icon) */
+.pdf-btn-modern {
+    width: 48px;
+    height: 48px;
+    background: #FFF0F0; /* Soft Red Background */
+    color: #E63946;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none !important;
     transition: 0.3s;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
 }
 
-.pdf-circle-btn:hover {
-    background: #dc3545;
+.pdf-btn-modern:hover {
+    background: #E63946;
     color: #fff;
-    transform: rotate(360deg);
+    transform: scale(1.1);
 }
 
-/* LIVE PULSE ICON */
-.live-pulse {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    background: #28a745;
-    border-radius: 50%;
-    box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7);
-    animation: pulse 1.5s infinite;
-}
-
-@keyframes pulse {
-    0% { box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7); }
-    70% { box-shadow: 0 0 0 10px rgba(40, 167, 69, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(40, 167, 69, 0); }
-}
-
-/* 2. EVENT MODERN CARDS */
-.event-modern-card {
-    background: #fff;
-    border-radius: 20px;
-    padding: 10px;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    border: 1px solid rgba(0,0,0,0.03);
-}
-
-.event-modern-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important;
-}
-
-.event-date-pill {
-    background: linear-gradient(135deg, #0056b3, #007bff);
-    color: #fff;
+/* VIEW ALL LINK AT BOTTOM */
+.notice-footer {
     padding: 15px;
-    border-radius: 18px;
-    min-width: 80px;
+    background: #fff;
 }
 
-.event-date-pill .day { font-size: 1.8rem; font-weight: 800; line-height: 1; }
-.event-date-pill .month { font-size: 0.8rem; font-weight: 600; }
-
-.title-underline {
-    width: 50px;
-    height: 4px;
-    background: #ffcc00;
-    border-radius: 10px;
-    margin-top: 5px;
+.view-all-link {
+    text-decoration: none;
+    color: #007BFF;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: 0.3s;
 }
 
-/* MOBILE RESPONSIVE TWEAKS */
-@media (max-width: 576px) {
-    .event-date-pill {
-        display: inline-block;
-        margin-bottom: 10px;
-        min-width: 100px;
+.view-all-link:hover {
+    color: #0056b3;
+    letter-spacing: 0.5px;
+}
+
+/* EVENT CARDS (MATCHING IMAGE) */
+.event-modern-row {
+    background: #fff;
+    border-radius: 25px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.event-date-blue {
+    background: #0066CC;
+    color: #fff;
+    min-width: 85px;
+    height: 85px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.event-date-blue .day { font-size: 1.8rem; font-weight: 800; line-height: 1; }
+.event-date-blue .month { font-size: 0.8rem; font-weight: 600; }
+
+.event-body { flex-grow: 1; }
+
+/* MOBILE RESPONSIVENESS */
+@media (max-width: 768px) {
+    .event-modern-row {
+        flex-direction: column;
+        text-align: center;
+        padding: 25px;
     }
-    .event-modern-card {
-        padding: 20px 10px;
-    }
-    .main-title { font-size: 2rem; }
-    .hero { height: auto; padding: 120px 0 60px 0; }
+    .title-underline-yellow { margin-left: auto; margin-right: auto; } /* Center line on mobile */
 }
         /* 4. ALUMNI SECTION */
         .batch-btn {
@@ -379,99 +382,97 @@
     <div class="molecule-bubble b2"></div>
 </section>
 
-<!-- UPDATED NOTICE & EVENTS SECTION -->
+<!-- REFINED NOTICES & EVENTS SECTION -->
 <section id="updates" class="py-5 bg-light">
     <div class="container py-4">
-        <div class="row g-4">
+        <div class="row g-5 align-items-start">
             
-            <!-- 1. MODERN NOTICE BOARD -->
+            <!-- 1. NOTICES SECTION (Left Column) -->
             <div class="col-lg-5" data-aos="fade-up">
-                <div class="modern-card notice-wrapper shadow-lg">
-                    <div class="card-header-custom bg-white p-4 d-flex justify-content-between align-items-center">
-                        <h4 class="fw-800 m-0 text-dark">
-                            <span class="live-pulse me-2"></span>Notices
-                        </h4>
-                        <a href="#" class="btn btn-sm btn-outline-primary rounded-pill px-3">View All</a>
-                    </div>
-                    
+                <!-- Centered Header with Yellow Line -->
+                <div class="section-title-wrapper mb-4 text-center">
+                    <h3 class="fw-800 text-dark m-0">Notices</h3>
+                    <div class="title-underline-yellow mx-auto"></div>
+                </div>
+                
+                <div class="modern-notice-card shadow-lg">
                     <div class="notice-scroll-area">
-                        <!-- Notice 1 -->
+                        <!-- Notice Item 1 -->
                         <div class="notice-card-item">
-                            <div class="d-flex justify-content-between w-100">
+                            <div class="d-flex justify-content-between align-items-center">
                                 <div class="notice-info">
-                                    <span class="text-danger fw-bold small-text text-uppercase">Academic</span>
+                                    <span class="badge-text text-danger">ACADEMIC</span>
                                     <h6 class="mt-1 mb-1 fw-700">B.Sc 3rd Sem Sessional Exam Schedule</h6>
                                     <p class="text-muted small mb-0"><i class="far fa-clock me-1"></i>Posted: 2h ago</p>
                                 </div>
                                 <div class="notice-action">
-                                    <a href="#" class="pdf-circle-btn" download><i class="fas fa-file-pdf"></i></a>
+                                    <a href="#" class="pdf-btn-modern" title="Download PDF"><i class="fas fa-file-pdf"></i></a>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Notice 2 -->
+                        <!-- Notice Item 2 -->
                         <div class="notice-card-item border-top">
-                            <div class="d-flex justify-content-between w-100">
+                            <div class="d-flex justify-content-between align-items-center">
                                 <div class="notice-info">
-                                    <span class="text-primary fw-bold small-text text-uppercase">Workshop</span>
+                                    <span class="badge-text text-primary">WORKSHOP</span>
                                     <h6 class="mt-1 mb-1 fw-700">Lab Safety & Instrumentation Training</h6>
                                     <p class="text-muted small mb-0"><i class="far fa-clock me-1"></i>Posted: Yesterday</p>
                                 </div>
                                 <div class="notice-action">
-                                    <a href="#" class="pdf-circle-btn" download><i class="fas fa-file-pdf"></i></a>
+                                    <a href="#" class="pdf-btn-modern" title="Download PDF"><i class="fas fa-file-pdf"></i></a>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    
+                    <!-- View All Option at the Bottom -->
+                    <div class="notice-footer text-center border-top">
+                        <a href="#" class="view-all-link">
+                            View All Notices <i class="fas fa-arrow-right ms-1"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
 
-            <!-- 2. MODERN EVENTS SECTION -->
+            <!-- 2. EVENTS SECTION (Right Column) -->
             <div class="col-lg-7" data-aos="fade-up" data-aos-delay="200">
-                <div class="section-title-wrapper mb-4 text-center text-lg-start">
-                    <h3 class="fw-800 text-dark">Departmental <span class="text-primary">Events</span></h3>
-                    <div class="title-underline mx-auto mx-lg-0"></div>
+                <div class="section-title-wrapper mb-4 text-start">
+                    <h3 class="fw-800 text-dark m-0">Departmental <span class="text-primary">Events</span></h3>
+                    <div class="title-underline-yellow"></div>
                 </div>
 
-                <!-- Event Item (Upcoming) -->
-                <div class="event-modern-card mb-4 upcoming-gradient shadow-sm">
-                    <div class="row g-0 align-items-center">
-                        <div class="col-12 col-sm-3 text-center">
-                            <div class="event-date-pill">
-                                <span class="d-block day">14</span>
-                                <span class="month text-uppercase">Nov</span>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-6 text-center text-sm-start py-3 px-3">
-                            <h5 class="fw-700 mb-1">National Chemistry Day</h5>
-                            <p class="text-muted small mb-0"><i class="fas fa-map-marker-alt me-1"></i> Auditorium • 11 AM</p>
-                        </div>
-                        <div class="col-12 col-sm-3 text-center py-2">
-                            <button class="btn btn-primary rounded-pill px-4 btn-sm fw-bold">Register</button>
-                        </div>
+                <!-- Upcoming Event -->
+                <div class="event-modern-row mb-4 shadow-sm">
+                    <div class="event-date-blue">
+                        <span class="day">14</span>
+                        <span class="month">NOV</span>
+                    </div>
+                    <div class="event-body">
+                        <h5 class="fw-700 mb-1">National Chemistry Day</h5>
+                        <p class="text-muted small mb-0"><i class="fas fa-map-marker-alt me-1"></i> Auditorium • 11 AM</p>
+                    </div>
+                    <div class="event-cta">
+                        <button class="btn btn-primary rounded-pill px-4 fw-bold">Register</button>
                     </div>
                 </div>
 
-                <!-- Event Item (Past) -->
-                <div class="event-modern-card past-event shadow-sm">
-                    <div class="row g-0 align-items-center">
-                        <div class="col-12 col-sm-3 text-center">
-                            <div class="event-date-pill bg-secondary text-white">
-                                <span class="d-block day">05</span>
-                                <span class="month text-uppercase">Oct</span>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-6 text-center text-sm-start py-3 px-3">
-                            <h5 class="fw-700 mb-1 text-dark">Industrial Visit 2023</h5>
-                            <p class="text-muted small mb-0">Visit to Brahmaputra Cracker & Polymer Ltd.</p>
-                        </div>
-                        <div class="col-12 col-sm-3 text-center py-2">
-                            <a href="#" class="btn btn-outline-secondary rounded-pill btn-sm px-3">Gallery</a>
-                        </div>
+                <!-- Past Event -->
+                <div class="event-modern-row shadow-sm">
+                    <div class="event-date-blue bg-primary-dark">
+                        <span class="day">05</span>
+                        <span class="month">OCT</span>
+                    </div>
+                    <div class="event-body">
+                        <h5 class="fw-700 mb-1">Industrial Visit 2023</h5>
+                        <p class="text-muted small mb-0">Visit to Brahmaputra Cracker & Polymer Ltd.</p>
+                    </div>
+                    <div class="event-cta">
+                        <a href="#" class="btn btn-outline-secondary rounded-pill px-4">Gallery</a>
                     </div>
                 </div>
-
             </div>
+
         </div>
     </div>
 </section>
