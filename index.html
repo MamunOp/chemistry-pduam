@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dept. of Chemistry | PDUAM Dalgaon</title>
+    <title>Chemistry Dept | PDUAM Dalgaon</title>
     
     <!-- Frameworks -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -15,241 +15,279 @@
         :root {
             --bg-dark: #05080a;
             --emerald: #00ff88;
-            --glass: rgba(255, 255, 255, 0.03);
+            --glass: rgba(255, 255, 255, 0.05);
             --border: rgba(255, 255, 255, 0.1);
             --text-silver: #a0aec0;
         }
 
-        /* 1. REQUESTED SVG BACKGROUND */
+        /* 1. EXACT SVG BACKGROUND - FIXED & OPTIMIZED */
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: var(--bg-dark);
             color: #ffffff;
             margin: 0;
             overflow-x: hidden;
+        }
+
+        .bg-hex-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
             background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l25.98 15v30L30 60 4.02 45V15z' fill-rule='evenodd' stroke='%23ffffff' stroke-width='0.5' fill='none' opacity='0.07'/%3E%3C/svg%3E");
-            background-attachment: fixed;
+            z-index: -1;
+            pointer-events: none;
         }
 
-        h1, h2, h3, .serif { font-family: 'Playfair Display', serif; }
+        h1, h2, h3, .serif { font-family: 'Playfair Display', serif; letter-spacing: -0.5px; }
 
-        /* MOBILE ALIGNMENT UTILITY */
-        .adaptive-text { text-align: center !important; }
-        @media (min-width: 992px) { .adaptive-text { text-align: left !important; } }
-
-        /* NAVIGATION */
+        /* NAV BAR MOBILE FIXES */
         .navbar {
-            backdrop-filter: blur(20px);
-            background: rgba(5, 8, 10, 0.85) !important;
+            backdrop-filter: blur(15px);
+            background: rgba(5, 8, 10, 0.9) !important;
             border-bottom: 1px solid var(--border);
-            padding: 20px 0;
+            padding: 12px 0;
         }
-        .nav-link { 
-            text-transform: uppercase; font-size: 0.8rem; font-weight: 700; color: #fff !important; 
-            margin: 0 12px; transition: 0.3s;
-        }
-        .nav-link:hover { color: var(--emerald) !important; }
+        .navbar-brand { font-weight: 800; font-size: 1.2rem; }
+        .navbar-toggler { border: none !important; color: var(--emerald); font-size: 1.5rem; }
 
-        /* HERO SECTION */
+        /* HERO SECTION - MOBILE OPTIMIZED */
         .hero {
-            padding: 160px 0 100px;
-            min-height: 85vh;
+            padding: 120px 0 60px;
+            min-height: 90vh;
             display: flex;
             align-items: center;
         }
-        .hero-title { font-size: clamp(2.5rem, 8vw, 5rem); line-height: 1.1; margin-bottom: 25px; }
+        .hero-title { 
+            font-size: clamp(2.4rem, 9vw, 5rem); 
+            line-height: 1.1; 
+            margin-bottom: 20px; 
+        }
         .hero-title span { color: var(--emerald); font-style: italic; }
 
-        /* HIGHLIGHTS BAR */
-        .highlights-bar {
+        /* HIGHLIGHTS SECTION */
+        .highlight-card {
             background: var(--glass);
             border: 1px solid var(--border);
-            padding: 30px;
             border-radius: 15px;
-            margin-top: -50px;
-            position: relative;
-            z-index: 10;
+            padding: 25px;
+            text-align: center;
+            transition: 0.3s;
         }
+        .highlight-card h2 { color: var(--emerald); font-weight: 800; font-size: 2.5rem; margin-bottom: 5px; }
+        .highlight-card p { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-silver); margin-bottom: 0; }
 
-        /* SECTION HEADERS */
-        .section-tag {
-            color: var(--emerald);
-            letter-spacing: 5px;
-            font-weight: 800;
-            text-transform: uppercase;
-            font-size: 0.75rem;
-            display: block;
-            margin-bottom: 15px;
-        }
-
-        /* LATEST UPDATES LEDGER */
-        .ledger-card {
-            background: var(--glass);
+        /* LEDGER/UPDATES SECTION */
+        .ledger-box {
+            background: rgba(255,255,255,0.02);
             border: 1px solid var(--border);
-            border-radius: 4px;
+            border-radius: 12px;
             overflow: hidden;
         }
-        .ledger-item {
+        .ledger-row {
             display: flex;
             align-items: center;
             padding: 20px;
             border-bottom: 1px solid var(--border);
             transition: 0.3s;
         }
-        .ledger-item:hover { background: rgba(0, 255, 136, 0.05); }
-        .ledger-icon {
-            width: 50px; height: 50px;
-            background: rgba(255,255,255,0.05);
-            display: flex; align-items: center; justify-content: center;
-            border-radius: 50%; margin-right: 20px; color: var(--emerald);
-        }
-        .pdf-btn {
-            color: #ff4d4d; font-size: 1.3rem; transition: 0.3s;
-        }
-        .pdf-btn:hover { transform: scale(1.2); }
+        .ledger-row:last-child { border-bottom: none; }
+        .ledger-row:hover { background: rgba(0, 255, 136, 0.05); }
 
-        /* ABOUT / HISTORY SECTION */
-        .history-text { font-size: 1.1rem; line-height: 1.8; color: var(--text-silver); }
-        .vision-card {
+        .date-badge {
+            min-width: 65px;
+            text-align: center;
+            border-right: 1px solid var(--border);
+            margin-right: 20px;
+            padding-right: 20px;
+        }
+        .date-badge .day { font-size: 1.4rem; font-weight: 800; color: var(--emerald); display: block; line-height: 1; }
+        .date-badge .month { font-size: 0.7rem; text-transform: uppercase; opacity: 0.6; }
+
+        /* HISTORY/CHRONICLE SECTION */
+        .history-box {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--text-silver);
+        }
+        .mission-vision-card {
             background: rgba(0, 255, 136, 0.03);
             border-left: 4px solid var(--emerald);
-            padding: 30px;
+            padding: 25px;
+            border-radius: 0 10px 10px 0;
             height: 100%;
         }
 
-        /* FACILITIES */
-        .facility-item {
-            padding: 30px;
+        /* FACILITIES GRID */
+        .facility-card {
+            background: var(--glass);
             border: 1px solid var(--border);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            height: 100%;
             transition: 0.4s;
-            background: rgba(255,255,255,0.01);
         }
-        .facility-item:hover { border-color: var(--emerald); background: var(--glass); }
-        .facility-icon { font-size: 2.5rem; color: var(--emerald); margin-bottom: 20px; }
+        .facility-card:hover { border-color: var(--emerald); transform: translateY(-5px); }
+        .facility-card i { font-size: 2.5rem; color: var(--emerald); margin-bottom: 20px; }
 
-        /* BUTTONS */
+        /* BUTTONS - RESPONSIVE */
         .btn-emerald {
-            background: var(--emerald); color: #000; font-weight: 800;
-            padding: 16px 35px; border-radius: 4px; text-transform: uppercase;
-            letter-spacing: 1px; border: none; transition: 0.3s;
+            background: var(--emerald);
+            color: #000;
+            font-weight: 800;
+            padding: 16px 35px;
+            border-radius: 6px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            width: 100%; /* Mobile full width */
         }
-        .btn-emerald:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0, 255, 136, 0.2); }
+        .btn-outline-custom {
+            background: transparent;
+            border: 2px solid var(--border);
+            color: #fff;
+            padding: 14px 35px;
+            font-weight: 700;
+            border-radius: 6px;
+            text-transform: uppercase;
+            width: 100%; /* Mobile full width */
+        }
+        @media (min-width: 576px) {
+            .btn-emerald, .btn-outline-custom { width: auto; } /* Desktop auto width */
+        }
 
-        @media (max-width: 768px) {
-            .ledger-item { flex-direction: column; text-align: center; }
-            .ledger-icon { margin-right: 0; margin-bottom: 15px; }
-            .pdf-btn { margin-top: 15px; }
-            .hero { padding-top: 120px; }
-        }
+        /* ADAPTIVE ALIGNMENT */
+        .adaptive-text { text-align: center; }
+        @media (min-width: 992px) { .adaptive-text { text-align: left; } }
+
+        .section-padding { padding: 80px 0; }
+        .tag-line { color: var(--emerald); font-weight: 800; letter-spacing: 4px; text-transform: uppercase; font-size: 0.75rem; margin-bottom: 15px; display: block; }
     </style>
 </head>
 <body>
 
-    <!-- NAVIGATION -->
-    <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="bg-hex-overlay"></div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand fw-bold text-white h3 mb-0" href="#">PDUAM <span class="text-emerald">CHEM.</span></a>
-            <button class="navbar-toggler text-white border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <i class="fas fa-bars"></i>
+            <a class="navbar-brand text-white" href="#">PDUAM <span style="color: var(--emerald);">CHEMISTRY</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <i class="fas fa-bars-staggered"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto text-center">
-                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">The Department</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#updates">Updates</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#facilities">Facilities</a></li>
+                <ul class="navbar-nav ms-auto text-center py-3 py-lg-0">
+                    <li class="nav-item"><a class="nav-link px-3 text-white-50" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link px-3 text-white-50" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link px-3 text-white-50" href="#updates">Notices</a></li>
+                    <li class="nav-item"><a class="nav-link px-3 text-white-50" href="#facilities">Facilities</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- HOME PAGE: HERO SECTION -->
+    <!-- HOME HERO -->
     <section id="home" class="hero">
-        <div class="container adaptive-text">
-            <div class="row align-items-center">
-                <div class="col-lg-9" data-aos="fade-right">
-                    <span class="section-tag">Academic Excellence Since 2017</span>
-                    <h1 class="hero-title fw-bold">Pushing the Boundaries of <span>Chemical</span> Research.</h1>
-                    <p class="lead text-silver mb-5" style="max-width: 700px; font-size: 1.25rem;">
-                        A premier center for scientific inquiry at PDUAM Dalgaon, dedicated to fostering innovation, 
-                        analytical rigor, and molecular discovery in the heart of Darrang.
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 adaptive-text" data-aos="fade-up">
+                    <span class="tag-line">Center of Excellence // Since 2017</span>
+                    <h1 class="hero-title fw-bold">Pushing the Frontiers of <span>Molecular</span> Synthesis.</h1>
+                    <p class="lead text-silver mb-5 mx-auto mx-lg-0" style="max-width: 650px; font-size: 1.2rem;">
+                        The Department of Chemistry at PDUAM Dalgaon is dedicated to high-impact research, analytical precision, and the next generation of scientific leadership.
                     </p>
-                    <div class="d-flex flex-column flex-sm-row justify-content-center justify-content-lg-start gap-3">
-                        <a href="#about" class="btn btn-emerald">Explore Department</a>
-                        <a href="#updates" class="btn btn-outline-light px-5 py-3 rounded-1 fw-bold">Latest Bulletins</a>
+                    <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center justify-content-lg-start">
+                        <a href="#about" class="btn btn-emerald">Explore Dept</a>
+                        <a href="#updates" class="btn btn-outline-custom">Latest Updates</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- HIGHLIGHTS SECTION -->
-    <div class="container">
-        <div class="highlights-bar text-center">
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <h2 class="text-emerald fw-800 mb-1">#1</h2>
-                    <p class="small text-white-50 text-uppercase mb-0">Science Dept in District</p>
+    <!-- HIGHLIGHTS BAR -->
+    <div class="container mb-5">
+        <div class="row g-3">
+            <div class="col-md-4" data-aos="zoom-in">
+                <div class="highlight-card">
+                    <h2>#1</h2>
+                    <p>Science Dept In District</p>
                 </div>
-                <div class="col-md-4 border-start border-end border-secondary">
-                    <h2 class="text-emerald fw-800 mb-1">03+</h2>
-                    <p class="small text-white-50 text-uppercase mb-0">Advanced Research Labs</p>
+            </div>
+            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+                <div class="highlight-card">
+                    <h2>03+</h2>
+                    <p>Research Laboratories</p>
                 </div>
-                <div class="col-md-4">
-                    <h2 class="text-emerald fw-800 mb-1">100%</h2>
-                    <p class="small text-white-50 text-uppercase mb-0">Practical Exam Success</p>
+            </div>
+            <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+                <div class="highlight-card">
+                    <h2>100%</h2>
+                    <p>Success In Practicals</p>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- LATEST UPDATES (NOTICES & EVENTS) -->
-    <section id="updates" class="py-5 mt-5">
-        <div class="container py-5">
+    <section id="updates" class="section-padding">
+        <div class="container">
             <div class="row g-5">
                 <!-- NOTICES -->
                 <div class="col-lg-6" data-aos="fade-up">
-                    <span class="section-tag">Bulletins</span>
-                    <h2 class="serif h1 mb-4 adaptive-text">Academic Notices</h2>
-                    <div class="ledger-card">
-                        <div class="ledger-item">
-                            <div class="ledger-icon"><i class="fas fa-file-invoice"></i></div>
-                            <div class="flex-grow-1">
-                                <h6 class="mb-1">B.Sc 5th Sem Sessional Schedule 2024</h6>
-                                <p class="small text-white-50 mb-0">Updated on Oct 12 • Official Archive</p>
+                    <span class="tag-line">Bulletins</span>
+                    <h2 class="serif mb-4 adaptive-text h1">Academic Notices</h2>
+                    <div class="ledger-box">
+                        <div class="ledger-row">
+                            <div class="date-badge">
+                                <span class="day">12</span>
+                                <span class="month">Oct</span>
                             </div>
-                            <a href="#" class="pdf-btn"><i class="fas fa-file-pdf"></i></a>
+                            <div class="flex-grow-1">
+                                <h6 class="mb-1 fw-bold">B.Sc 5th Sem Exam Protocol</h6>
+                                <p class="small text-white-50 mb-0">PDF Archive // Laboratory Rules 2024</p>
+                            </div>
+                            <a href="#" class="text-danger ms-2"><i class="fas fa-file-pdf h4 mb-0"></i></a>
                         </div>
-                        <div class="ledger-item">
-                            <div class="ledger-icon"><i class="fas fa-microscope"></i></div>
-                            <div class="flex-grow-1">
-                                <h6 class="mb-1">Practical Internal Assessment Marks</h6>
-                                <p class="small text-white-50 mb-0">All Semesters • Laboratory Records</p>
+                        <div class="ledger-row">
+                            <div class="date-badge">
+                                <span class="day">05</span>
+                                <span class="month">Oct</span>
                             </div>
-                            <a href="#" class="pdf-btn"><i class="fas fa-file-pdf"></i></a>
+                            <div class="flex-grow-1">
+                                <h6 class="mb-1 fw-bold">Practical Internal Assessment</h6>
+                                <p class="small text-white-50 mb-0">Merit List // All Core Semesters</p>
+                            </div>
+                            <a href="#" class="text-danger ms-2"><i class="fas fa-file-pdf h4 mb-0"></i></a>
                         </div>
                     </div>
                 </div>
+
                 <!-- EVENTS -->
                 <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-                    <span class="section-tag">Engagement</span>
-                    <h2 class="serif h1 mb-4 adaptive-text">Department Events</h2>
-                    <div class="ledger-card">
-                        <div class="ledger-item">
-                            <div class="ledger-icon text-warning"><i class="fas fa-calendar-star"></i></div>
-                            <div class="flex-grow-1">
-                                <h6 class="mb-1">National Chemistry Day Seminar</h6>
-                                <p class="small text-white-50 mb-0">Upcoming: Nov 14, 2024 • Auditorium</p>
+                    <span class="tag-line">Campus Life</span>
+                    <h2 class="serif mb-4 adaptive-text h1">Department Events</h2>
+                    <div class="ledger-box">
+                        <div class="ledger-row">
+                            <div class="date-badge">
+                                <span class="day">14</span>
+                                <span class="month">Nov</span>
                             </div>
-                            <a href="#" class="text-emerald text-decoration-none small fw-bold">JOIN</a>
+                            <div class="flex-grow-1">
+                                <h6 class="mb-1 fw-bold">National Chemistry Seminar</h6>
+                                <p class="small text-white-50 mb-0">Upcoming // College Auditorium</p>
+                            </div>
+                            <a href="#" class="text-emerald text-decoration-none small fw-bold">DETAILS</a>
                         </div>
-                        <div class="ledger-item">
-                            <div class="ledger-icon text-info"><i class="fas fa-history"></i></div>
-                            <div class="flex-grow-1">
-                                <h6 class="mb-1">Industrial Visit: BCPL Dibrugarh</h6>
-                                <p class="small text-white-50 mb-0">Past Event • Field Report 2023</p>
+                        <div class="ledger-row">
+                            <div class="date-badge">
+                                <span class="day">22</span>
+                                <span class="month">Sep</span>
                             </div>
-                            <a href="#" class="pdf-btn text-info"><i class="fas fa-images"></i></a>
+                            <div class="flex-grow-1">
+                                <h6 class="mb-1 fw-bold">BCPL Industrial Visit</h6>
+                                <p class="small text-white-50 mb-0">Past Event // Field Report 2023</p>
+                            </div>
+                            <a href="#" class="text-white-50"><i class="fas fa-images h4 mb-0"></i></a>
                         </div>
                     </div>
                 </div>
@@ -257,32 +295,26 @@
         </div>
     </section>
 
-    <!-- ABOUT DEPARTMENT: HISTORY, VISION, MISSION -->
-    <section id="about" class="py-5 bg-black-50">
-        <div class="container py-5">
-            <div class="row g-5">
+    <!-- ABOUT SECTION -->
+    <section id="about" class="section-padding bg-black-50">
+        <div class="container">
+            <div class="row g-5 align-items-center">
                 <div class="col-lg-7 adaptive-text" data-aos="fade-right">
-                    <span class="section-tag">The Chronicle</span>
-                    <h2 class="serif display-4 mb-4">A Legacy of Scientific Inquiry</h2>
-                    <div class="history-text">
-                        <p>Established in 2017, the Department of Chemistry at PDUAM Dalgaon was founded with a transformative vision: to bring high-caliber science education to the rural landscapes of Darrang. What began as a foundational undergraduate wing has evolved into a powerhouse of chemical education, bridging the gap between local talent and global scientific standards.</p>
-                        <p>Our history is marked by a relentless pursuit of infrastructure excellence. Over the last seven years, we have transitioned from basic experimental setups to a multi-wing facility that supports Advanced Synthesis and Instrumental Analysis. Our faculty, composed of researchers from premier national institutes, ensures that the spirit of 'Synthesis and Discovery' remains at the core of our pedagogy.</p>
+                    <span class="tag-line">Our History</span>
+                    <h2 class="serif display-5 mb-4">A Legacy of Scientific Excellence</h2>
+                    <div class="history-box">
+                        <p>Founded in 2017, the Department of Chemistry at PDUAM Dalgaon began with a singular mission: to democratize world-class science education in rural Assam. Over the past seven years, it has transformed from a foundational academic wing into a premier center for chemical research and analytical inquiry.</p>
+                        <p>We take pride in our "Research-First" methodology, ensuring that every student moves beyond textbooks into real-world synthesis and molecular analysis. Our alumni now represent us in top national laboratories and central universities across India.</p>
                     </div>
                 </div>
                 <div class="col-lg-5" data-aos="fade-left">
-                    <div class="row g-4">
-                        <div class="col-12">
-                            <div class="vision-card">
-                                <h4 class="text-emerald mb-3"><i class="fas fa-eye me-2"></i> Our Vision</h4>
-                                <p class="small text-white-50 mb-0">To be a pioneer in chemical education that nurtures a research-centric mindset, enabling students to address global environmental and industrial challenges.</p>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="vision-card">
-                                <h4 class="text-emerald mb-3"><i class="fas fa-rocket me-2"></i> Our Mission</h4>
-                                <p class="small text-white-50 mb-0">Providing state-of-the-art laboratory access and 100% mentorship for graduates to excel in prestigious national-level research entrances (JAM, GATE).</p>
-                            </div>
-                        </div>
+                    <div class="mission-vision-card mb-4">
+                        <h4 class="text-emerald fw-bold"><i class="fas fa-eye me-2"></i> Our Vision</h4>
+                        <p class="small text-white-50 mb-0">To be a pioneer in sustainable chemical education that produces innovative thinkers capable of solving industrial and environmental crises.</p>
+                    </div>
+                    <div class="mission-vision-card">
+                        <h4 class="text-emerald fw-bold"><i class="fas fa-rocket me-2"></i> Our Mission</h4>
+                        <p class="small text-white-50 mb-0">Empowering rural talent through 100% laboratory access, digital ICT learning tools, and rigorous competitive exam mentorship (JAM/GATE).</p>
                     </div>
                 </div>
             </div>
@@ -290,30 +322,32 @@
     </section>
 
     <!-- FACILITIES SECTION -->
-    <section id="facilities" class="py-5">
-        <div class="container py-5 text-center">
-            <span class="section-tag">Infrastructure</span>
-            <h2 class="serif h1 mb-5">World Class Facilities</h2>
-            <div class="row g-0">
+    <section id="facilities" class="section-padding">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="tag-line">Infrastructure</span>
+                <h2 class="serif h1">Core Research Facilities</h2>
+            </div>
+            <div class="row g-4">
                 <div class="col-md-4" data-aos="zoom-in">
-                    <div class="facility-item">
-                        <i class="fas fa-vial facility-icon"></i>
-                        <h4 class="mb-3">Synthesis Laboratory</h4>
-                        <p class="small text-white-50">Equipped with Rotary Evaporators, Fume Hoods, and high-precision heating mantles for organic synthesis.</p>
+                    <div class="facility-card">
+                        <i class="fas fa-flask-vial"></i>
+                        <h4 class="fw-bold text-white">Synthesis Lab</h4>
+                        <p class="small text-white-50">Equipped with Rotary Evaporators, Fume Hoods, and high-precision heating setups for advanced organic research.</p>
                     </div>
                 </div>
                 <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="facility-item border-lg-start border-lg-end">
-                        <i class="fas fa-wave-square facility-icon"></i>
-                        <h4 class="mb-3">Instrumental Wing</h4>
+                    <div class="facility-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h4 class="fw-bold text-white">Instrument Wing</h4>
                         <p class="small text-white-50">Housing UV-Vis Spectrophotometers, Digital Potentiometers, and Conductometers for quantitative analysis.</p>
                     </div>
                 </div>
                 <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="facility-item">
-                        <i class="fas fa-chalkboard-teacher facility-icon"></i>
-                        <h4 class="mb-3">Smart Classrooms</h4>
-                        <p class="small text-white-50">ICT-enabled learning spaces with 3D molecular visualization tools for engaging theoretical sessions.</p>
+                    <div class="facility-card">
+                        <i class="fas fa-chalkboard-user"></i>
+                        <h4 class="fw-bold text-white">ICT Smart Rooms</h4>
+                        <p class="small text-white-50">Fully digitized classrooms for 3D molecular visualization and interactive software-based lecture series.</p>
                     </div>
                 </div>
             </div>
@@ -321,15 +355,15 @@
     </section>
 
     <!-- FOOTER -->
-    <footer class="py-5 border-top border-secondary bg-black">
-        <div class="container adaptive-text">
-            <div class="row g-4 justify-content-between align-items-center">
-                <div class="col-lg-6">
-                    <h3 class="serif fw-bold h2 mb-3">PDUAM <span class="text-emerald">CHEMISTRY.</span></h3>
-                    <p class="text-white-50 small mb-0">Building a world-class foundation in chemical education since 2017. <br>Pandit Deendayal Upadhyaya Adarsha Mahavidyalaya, Dalgaon.</p>
+    <footer class="py-5 border-top border-secondary text-center text-lg-start">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h3 class="serif fw-bold">PDUAM <span style="color: var(--emerald);">CHEM.</span></h3>
+                    <p class="text-white-50 small mb-0">Building the future of chemistry since 2017. <br> Pandit Deendayal Upadhyaya Adarsha Mahavidyalaya, Dalgaon.</p>
                 </div>
-                <div class="col-lg-4 text-lg-end">
-                    <p class="small text-white-50 mb-0">&copy; 2024 Dept. of Chemistry. All rights reserved.</p>
+                <div class="col-lg-6 text-lg-end">
+                    <p class="small text-white-50">&copy; 2024 Department of Chemistry. Built for Excellence.</p>
                 </div>
             </div>
         </div>
