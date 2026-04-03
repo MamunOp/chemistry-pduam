@@ -1,167 +1,259 @@
-<!-- UPDATES SECTION: NOTICES & EVENTS -->
-<section id="updates" class="py-5">
-    <div class="container py-4">
-        <div class="row g-5">
-            
-            <!-- LEFT COLUMN: NOTICES (Bulletins) -->
-            <div class="col-lg-5" data-aos="fade-right">
-                <span class="tag-line text-adaptive">Official Archive</span>
-                <h2 class="serif h1 mb-4 text-adaptive">Academic Bulletins</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notices & Events | Dept. of Chemistry</title>
+    
+    <!-- Frameworks -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-dark: #05080a;
+            --emerald: #00ff88;
+            --glass: rgba(255, 255, 255, 0.05);
+            --border: rgba(255, 255, 255, 0.1);
+            --text-silver: #a0aec0;
+        }
+
+        /* 1. FIXED SVG BACKGROUND */
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-dark);
+            color: #ffffff;
+            margin: 0;
+            overflow-x: hidden;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l25.98 15v30L30 60 4.02 45V15z' fill-rule='evenodd' stroke='%23ffffff' stroke-width='0.5' fill='none' opacity='0.07'/%3E%3C/svg%3E");
+            background-attachment: fixed;
+        }
+
+        h1, h2, h3, .serif { font-family: 'Playfair Display', serif; }
+
+        /* 2. MOBILE CENTERING UTILITIES */
+        .adaptive-text { text-align: center !important; }
+        @media (min-width: 992px) { .adaptive-text { text-align: left !important; } }
+
+        .section-tag {
+            color: var(--emerald);
+            letter-spacing: 4px;
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        /* 3. BULLETINS (LEDGER STYLE) */
+        .ledger-container {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .ledger-item {
+            display: flex;
+            align-items: center;
+            padding: 25px;
+            border-bottom: 1px solid var(--border);
+            transition: 0.3s;
+        }
+        .ledger-item:last-child { border-bottom: none; }
+        .ledger-item:hover { background: rgba(0, 255, 136, 0.05); }
+
+        .date-badge {
+            min-width: 80px;
+            text-align: center;
+            border-right: 1px solid var(--border);
+            margin-right: 25px;
+        }
+        .date-badge .day { font-size: 1.6rem; font-weight: 800; color: var(--emerald); display: block; line-height: 1; }
+        .date-badge .month { font-size: 0.75rem; text-transform: uppercase; opacity: 0.6; }
+
+        .pdf-btn {
+            color: #ff4d4d;
+            font-size: 1.5rem;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+        .pdf-btn:hover { transform: scale(1.2); color: #ff0000; }
+
+        /* 4. EVENTS DESIGN */
+        .event-card-upcoming {
+            background: rgba(0, 255, 136, 0.03);
+            border: 1px solid var(--emerald);
+            border-radius: 15px;
+            padding: 35px;
+            box-shadow: 0 0 30px rgba(0, 255, 136, 0.05);
+        }
+
+        .event-past-item {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 15px 25px;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: 0.3s;
+        }
+        .event-past-item:hover { border-color: var(--emerald); }
+
+        /* 5. MOBILE OVERRIDES (CRITICAL FIX) */
+        @media (max-width: 991px) {
+            .ledger-item { 
+                flex-direction: column; 
+                text-align: center; 
+                padding: 30px 20px;
+            }
+            .date-badge { 
+                border-right: none; 
+                border-bottom: 1px solid var(--border); 
+                margin-right: 0; 
+                margin-bottom: 15px; 
+                padding-bottom: 10px; 
+                width: 100%; 
+            }
+            .event-past-item { 
+                flex-direction: column; 
+                text-align: center; 
+                gap: 10px;
+            }
+            .btn-mobile-wide { width: 100%; }
+        }
+
+        .btn-emerald {
+            background: var(--emerald);
+            color: #000;
+            font-weight: 800;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-transform: uppercase;
+            border: none;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- UPDATES SECTION -->
+    <section id="updates" class="py-5">
+        <div class="container py-lg-5">
+            <div class="row g-5">
                 
-                <div class="ledger-box">
-                    <!-- Notice 1 -->
-                    <div class="ledger-row">
-                        <div class="date-badge">
-                            <span class="day">15</span>
-                            <span class="month">Oct</span>
-                        </div>
-                        <div class="flex-grow-1">
-                            <h6 class="mb-1 fw-bold">B.Sc 5th Sem Sessional Exam</h6>
-                            <p class="small text-white-50 mb-0">PDF Protocol // Oct-Nov 2024 Session</p>
-                        </div>
-                        <a href="#" class="text-danger ms-3" title="Download PDF">
-                            <i class="fas fa-file-pdf h3 mb-0"></i>
-                        </a>
-                    </div>
-
-                    <!-- Notice 2 -->
-                    <div class="ledger-row">
-                        <div class="date-badge">
-                            <span class="day">08</span>
-                            <span class="month">Oct</span>
-                        </div>
-                        <div class="flex-grow-1">
-                            <h6 class="mb-1 fw-bold">Practical Internal Assessment</h6>
-                            <p class="small text-white-50 mb-0">Major Selection Merit List // 2024</p>
-                        </div>
-                        <a href="#" class="text-danger ms-3" title="Download PDF">
-                            <i class="fas fa-file-pdf h3 mb-0"></i>
-                        </a>
-                    </div>
-
-                    <!-- Notice 3 -->
-                    <div class="ledger-row">
-                        <div class="date-badge">
-                            <span class="day">28</span>
-                            <span class="month">Sep</span>
-                        </div>
-                        <div class="flex-grow-1">
-                            <h6 class="mb-1 fw-bold">Holiday List: Winter 2024</h6>
-                            <p class="small text-white-50 mb-0">Academic Calendar // PDF Circular</p>
-                        </div>
-                        <a href="#" class="text-danger ms-3" title="Download PDF">
-                            <i class="fas fa-file-pdf h3 mb-0"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- RIGHT COLUMN: EVENTS (Centered Sections) -->
-            <div class="col-lg-7" data-aos="fade-left">
-                
-                <!-- UPCOMING EVENTS SUB-SECTION -->
-                <div class="text-center mb-5">
-                    <span class="tag-line">Future Engagement</span>
-                    <h2 class="serif h2 mb-4">Upcoming Events</h2>
+                <!-- 1. NOTICES / BULLETINS (LEFT) -->
+                <div class="col-lg-5" data-aos="fade-right">
+                    <span class="section-tag adaptive-text">Academic Archive</span>
+                    <h2 class="serif h1 mb-4 adaptive-text">Latest Bulletins</h2>
                     
-                    <div class="glass-card border-emerald py-4" style="background: rgba(0, 255, 136, 0.02);">
-                        <div class="p-2">
-                            <div class="h4 fw-bold text-emerald mb-2">National Chemistry Day 2024</div>
-                            <p class="text-silver mb-3">Keynote Seminar: "Green Chemistry & Sustainable Future"</p>
-                            <div class="d-flex justify-content-center gap-3 small text-white-50 mb-4">
-                                <span><i class="fas fa-calendar-alt text-emerald me-1"></i> Nov 14, 2024</span>
-                                <span><i class="fas fa-map-marker-alt text-emerald me-1"></i> Auditorium</span>
+                    <div class="ledger-container">
+                        <!-- Notice Item -->
+                        <div class="ledger-item">
+                            <div class="date-badge">
+                                <span class="day">15</span>
+                                <span class="month">Oct</span>
                             </div>
-                            <a href="#" class="btn btn-sm btn-emerald px-4 py-2">Registration Open</a>
+                            <div class="flex-grow-1">
+                                <h5 class="mb-1 fw-bold">B.Sc 5th Sem Exam Protocol</h5>
+                                <p class="small text-white-50 mb-0">PDF Circular // Session Oct-Nov 2024</p>
+                            </div>
+                            <a href="#" class="pdf-btn mt-3 mt-lg-0"><i class="fas fa-file-pdf"></i></a>
+                        </div>
+
+                        <!-- Notice Item -->
+                        <div class="ledger-item">
+                            <div class="date-badge">
+                                <span class="day">08</span>
+                                <span class="month">Oct</span>
+                            </div>
+                            <div class="flex-grow-1">
+                                <h5 class="mb-1 fw-bold">Practical Internal Marks</h5>
+                                <p class="small text-white-50 mb-0">Merit List // Major Selection 2024</p>
+                            </div>
+                            <a href="#" class="pdf-btn mt-3 mt-lg-0"><i class="fas fa-file-pdf"></i></a>
+                        </div>
+
+                        <!-- Notice Item -->
+                        <div class="ledger-item">
+                            <div class="date-badge">
+                                <span class="day">28</span>
+                                <span class="month">Sep</span>
+                            </div>
+                            <div class="flex-grow-1">
+                                <h5 class="mb-1 fw-bold">Winter Vacation Holiday List</h5>
+                                <p class="small text-white-50 mb-0">Official Academic Calendar PDF</p>
+                            </div>
+                            <a href="#" class="pdf-btn mt-3 mt-lg-0"><i class="fas fa-file-pdf"></i></a>
                         </div>
                     </div>
                 </div>
 
-                <!-- PAST EVENTS SUB-SECTION -->
-                <div class="text-center">
-                    <span class="tag-line opacity-50">Archive</span>
-                    <h2 class="serif h2 mb-4 opacity-75">Past Highlights</h2>
+                <!-- 2. EVENTS (RIGHT - CENTERED) -->
+                <div class="col-lg-7" data-aos="fade-left">
                     
-                    <div class="row g-3 justify-content-center">
-                        <div class="col-md-10">
-                            <!-- Past Item 1 -->
-                            <div class="doc-row border-0 bg-glass py-3 px-4 rounded-3 mb-2 d-flex align-items-center justify-content-between">
-                                <div class="text-start">
-                                    <div class="fw-bold small">Industrial Visit: BCPL Unit</div>
-                                    <div class="text-white-50" style="font-size: 0.7rem;">Field Report // September 2023</div>
-                                </div>
-                                <a href="#" class="text-info text-decoration-none small fw-bold">
-                                    <i class="fas fa-images me-1"></i> GALLERY
-                                </a>
+                    <!-- UPCOMING EVENTS -->
+                    <div class="text-center mb-5">
+                        <span class="section-tag">Engagement</span>
+                        <h2 class="serif h1 mb-4">Upcoming Events</h2>
+                        
+                        <div class="event-card-upcoming">
+                            <div class="h3 fw-bold text-emerald mb-2">National Chemistry Day 2024</div>
+                            <p class="text-white-50 mb-4 mx-auto" style="max-width: 500px;">
+                                A departmental seminar focused on "Green Chemistry & Industrial Sustainability" featuring guest lectures from IIT Guwahati.
+                            </p>
+                            <div class="d-flex justify-content-center flex-wrap gap-4 small text-emerald fw-bold mb-4">
+                                <span><i class="fas fa-calendar-alt me-2"></i> NOV 14, 2024</span>
+                                <span><i class="fas fa-map-marker-alt me-2"></i> AUDITORIUM</span>
                             </div>
-                            <!-- Past Item 2 -->
-                            <div class="doc-row border-0 bg-glass py-3 px-4 rounded-3 d-flex align-items-center justify-content-between">
-                                <div class="text-start">
-                                    <div class="fw-bold small">World Ozone Day Workshop</div>
-                                    <div class="text-white-50" style="font-size: 0.7rem;">Technical Seminar // May 2023</div>
+                            <a href="#" class="btn-emerald btn-mobile-wide">View Brochure (PDF)</a>
+                        </div>
+                    </div>
+
+                    <!-- PAST EVENTS -->
+                    <div class="text-center">
+                        <span class="section-tag opacity-50">History</span>
+                        <h2 class="serif h2 mb-4 opacity-75">Past Highlights</h2>
+                        
+                        <div class="row justify-content-center">
+                            <div class="col-xl-10">
+                                <!-- Past Item 1 -->
+                                <div class="event-past-item">
+                                    <div class="text-lg-start">
+                                        <h6 class="mb-0 fw-bold">Industrial Visit: BCPL Unit</h6>
+                                        <small class="text-white-50">Field Report // September 2023</small>
+                                    </div>
+                                    <a href="#" class="text-emerald text-decoration-none small fw-bold">
+                                        <i class="fas fa-images me-1"></i> VIEW GALLERY
+                                    </a>
                                 </div>
-                                <a href="#" class="text-info text-decoration-none small fw-bold">
-                                    <i class="fas fa-file-alt me-1"></i> REPORT
-                                </a>
+                                <!-- Past Item 2 -->
+                                <div class="event-past-item">
+                                    <div class="text-lg-start">
+                                        <h6 class="mb-0 fw-bold">World Ozone Day Workshop</h6>
+                                        <small class="text-white-50">Technical Seminar // May 2023</small>
+                                    </div>
+                                    <a href="#" class="text-emerald text-decoration-none small fw-bold">
+                                        <i class="fas fa-file-alt me-1"></i> REPORT PDF
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<style>
-    /* CSS additions specifically for this section */
-    .ledger-box {
-        background: rgba(255,255,255,0.02);
-        border: 1px solid var(--border);
-        border-radius: 8px;
-    }
-    .ledger-row {
-        display: flex;
-        align-items: center;
-        padding: 20px;
-        border-bottom: 1px solid var(--border);
-        transition: 0.3s;
-    }
-    .ledger-row:last-child { border-bottom: none; }
-    .ledger-row:hover { background: rgba(0, 255, 136, 0.05); }
-
-    .date-badge {
-        min-width: 65px;
-        text-align: center;
-        border-right: 1px solid var(--border);
-        margin-right: 20px;
-        padding-right: 20px;
-    }
-    .date-badge .day { font-size: 1.4rem; font-weight: 800; color: var(--emerald); display: block; line-height: 1; }
-    .date-badge .month { font-size: 0.7rem; text-transform: uppercase; opacity: 0.6; }
-
-    .border-emerald {
-        border: 1px solid var(--emerald) !important;
-        box-shadow: 0 0 20px rgba(0, 255, 136, 0.05);
-    }
-    
-    .bg-glass {
-        background: rgba(255,255,255,0.03);
-        border: 1px solid var(--border);
-    }
-
-    @media (max-width: 991px) {
-        .text-adaptive { text-align: center !important; }
-        .ledger-row { flex-direction: column; text-align: center; }
-        .date-badge { 
-            border-right: none; 
-            border-bottom: 1px solid var(--border); 
-            margin-right: 0; 
-            margin-bottom: 15px; 
-            padding-right: 0; 
-            padding-bottom: 10px; 
-            width: 100%;
-        }
-        .ledger-row a { margin-top: 15px; }
-    }
-</style>
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+    </script>
+</body>
+</html>
